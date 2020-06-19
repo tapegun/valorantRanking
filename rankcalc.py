@@ -45,29 +45,22 @@ stddev1 = (stddev1/4.0)**(.5)
 
 # calculating average team 2
 for c in range(5):
-    average2 += gamestore[str(c+6)][2]
+    average2 += gamestore[str(c+5)][2]
 
 average2 = (average2/5.0)
 
 # calculating standard deviation team 2
 for d in range(5):
-    stddev2 += (gamestore[str(d+6)][2] - average2)**2
+    stddev2 += (gamestore[str(d+5)][2] - average2)**2
 stddev2 = (stddev2/4.0)**(.5)
 
-for z in range(10):
+for z in range(9):
     playername = gamestore[str(z+1)][0]
     csnew = gamestore[str(z+1)][1]
     kda = gamestore[str(z+1)][2]
     csstable = rankstore[playername][0]
 
 
-    #print(playername + ", " + str(csnew) + ", " + str(kda) + ", " + str(csstable))
-    # if(z<5):
-    #     newelo = ((3.0/4)*(csstable) + (1.0/4)*(csnew))*((kda-average1) + 1)
-    #     print(playername + "'s new elo is " + str(newelo))
-    # else:
-    #     newelo = ((3.0/4)*(csstable) + (1.0/4)*(csnew))*((kda-average2) + 1)
-    #     print(playername + "'s new elo is " + str(newelo))
     if(z<5):
         newelo = ((3.0/4)*(csstable) + ((1.0/4)*(csnew)*((kda-average1) + 1)))
         print(playername + "'s new elo is " + str(newelo))
@@ -76,6 +69,9 @@ for z in range(10):
         newelo = ((3.0/4)*(csstable) + ((1.0/4)*(csnew)*((kda-average2) + 1)))
         print(playername + "'s new elo is " + str(newelo))
         rankstore[playername][0] = newelo
+
+sort = sorted(rankstore.items(), key=lambda x: x[1], reverse=True)
+print(sort)
 
 with open('rankings.json', 'w+') as f:
     json.dump(rankstore, f)

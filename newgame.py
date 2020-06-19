@@ -12,25 +12,25 @@ p9 = input("enter name, combat score, and k/d seperated by a space: ").split()
 p10 = input("enter name, combat score, and k/d seperated by a space: ").split()
 
 for y in range(2):
-    p1[y+1] = int(p1[y+1])
+    p1[y+1] = float(p1[y+1])
 for y in range(2):
-    p2[y+1] = int(p2[y+1])
+    p2[y+1] = float(p2[y+1])
 for y in range(2):
-    p3[y+1] = int(p3[y+1])
+    p3[y+1] = float(p3[y+1])
 for y in range(2):
-    p4[y+1] = int(p4[y+1])
+    p4[y+1] = float(p4[y+1])
 for y in range(2):
-    p5[y+1] = int(p5[y+1])
+    p5[y+1] = float(p5[y+1])
 for y in range(2):
-    p6[y+1] = int(p6[y+1])
+    p6[y+1] = float(p6[y+1])
 for y in range(2):
-    p7[y+1] = int(p7[y+1])
+    p7[y+1] = float(p7[y+1])
 for y in range(2):
-    p8[y+1] = int(p8[y+1])
+    p8[y+1] = float(p8[y+1])
 for y in range(2):
-    p9[y+1] = int(p9[y+1])
+    p9[y+1] = float(p9[y+1])
 for y in range(2):
-    p10[y+1] = int(p10[y+1])
+    p10[y+1] = float(p10[y+1])
 
 data = {
     0 : p1[0:],
