@@ -54,10 +54,10 @@ for d in range(5):
     stddev2 += (gamestore[str(d+5)][2] - average2)**2
 stddev2 = (stddev2/4.0)**(.5)
 
-for z in range(9):
-    playername = gamestore[str(z+1)][0]
-    csnew = gamestore[str(z+1)][1]
-    kda = gamestore[str(z+1)][2]
+for z in range(10):
+    playername = gamestore[str(z)][0]
+    csnew = gamestore[str(z)][1]
+    kda = gamestore[str(z)][2]
     csstable = rankstore[playername][0]
 
 
@@ -75,3 +75,7 @@ print(sort)
 
 with open('rankings.json', 'w+') as f:
     json.dump(rankstore, f)
+
+
+with open('sortedrankings.json', 'w+') as f:
+    json.dump(sort, f)

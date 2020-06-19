@@ -18,20 +18,25 @@ for y in range(5):
     avg2 += rankstore[players[y+5]][0]
     bestteam2.append(players[y+5])
 
-
+avg1 = avg1/5.0
+avg2 = avg2/5.0
 diffavg = abs(avg1-avg2)
+
+# print("skill difference: " + str(avg1) + " " + str(avg2))
 
 def avgdifference():
     tempavg1 = 0
     tempavg2 = 0
     for a in range(len(bestteam1)):
         tempavg1 += rankstore[bestteam1[a]][0]
-    tempavg1 = tempavg1/len(bestteam1)
+    tempavg1 = tempavg1/5.0
 
     for b in range(len(bestteam2)):
         tempavg2 += rankstore[bestteam2[b]][0]
-    tempavg2 = tempavg2/len(bestteam2)
+    tempavg2 = tempavg2/5.0
     return abs(tempavg1 - tempavg2)
+
+changed = 0
 
 for y in range (accuracy):
     for a in range(5):
@@ -39,9 +44,15 @@ for y in range (accuracy):
             temp = bestteam1[a]
             bestteam1[a] = bestteam2[b]
             bestteam2[b] = temp
-            if(avgdifference() > diffavg):
+            if(avgdifference() < diffavg):
                 diffavg = avgdifference()
-                continue
+                changed = 1
+            else:
+                bestteam2[b] = bestteam1[a]
+                bestteam1[a] = temp
+        # if(changed == 1):
+        #     break
+                
 
 print("team one: " + str(bestteam1))
 print("team two: " + str(bestteam2))
