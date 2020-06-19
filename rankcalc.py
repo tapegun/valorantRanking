@@ -6,7 +6,7 @@ import json
 def sortthird(val): 
     return val[12]  
 
-with open('rankings.json', 'r') as f:
+with open('rankings.json') as f:
     rankstore = json.load(f)
 with open('newgame.json', 'r') as s:
     gamestore = json.load(s)
@@ -71,6 +71,11 @@ for z in range(10):
     if(z<5):
         newelo = ((3.0/4)*(csstable) + ((1.0/4)*(csnew)*((kda-average1) + 1)))
         print(playername + "'s new elo is " + str(newelo))
+        rankstore[playername][0] = newelo
     else:
         newelo = ((3.0/4)*(csstable) + ((1.0/4)*(csnew)*((kda-average2) + 1)))
         print(playername + "'s new elo is " + str(newelo))
+        rankstore[playername][0] = newelo
+
+with open('rankings.json', 'w+') as f:
+    json.dump(rankstore, f)
