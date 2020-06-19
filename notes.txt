@@ -1,0 +1,3 @@
+pnt, madrich, carryme, woo, beta = .968
+
+sylo, koolaid, zairus, tapegun, linan = 1.251 

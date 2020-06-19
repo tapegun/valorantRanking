@@ -12,3 +12,4 @@ with open('rankings.json', 'r+') as f:
     f.seek(0)        # <--- should reset file position to the beginning.
     json.dump(data, f, indent=4)
     f.truncate()     # remove remaining part
+    
